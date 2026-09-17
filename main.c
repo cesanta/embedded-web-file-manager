@@ -75,6 +75,7 @@ int main(void) {
   // separate RTOS task. Give that task 8k stack space.
   mongoose_init();
 
+  s_fs->mkd(s_dir);
   mongoose_set_http_handlers("delete", my_check_delete, my_start_delete);
   mongoose_set_http_handlers("files", my_get_files, NULL);
   mongoose_set_http_handlers("fs", my_file_read_fs, my_file_write_fs);
